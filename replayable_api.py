@@ -90,7 +90,7 @@ async def text_to_speech(text, audio_id):
     
     try:
         print(f"🎤 开始生成语音: {text[:30]}...")
-        async with websockets.connect(url, extra_headers=headers, ssl=ssl_context) as ws:
+        async with websockets.connect(url, additional_headers=headers, ssl=ssl_context) as ws:
             start_msg = {
                 "event": "task_start",
                 "model": MODEL,
