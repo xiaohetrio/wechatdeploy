@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: chat-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn replayable_api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: MINIMAX_API_KEY
+        sync: false
+      - key: CLAUDE_API_KEY
+        sync: false
+      - key: VOICE_ID
+        value: moss_audio_1383593b-b1b4-11f0-a816-023f15327f7a
+      - key: TTS_MODEL
+        value: speech-02-turbo
+      - key: MAX_HISTORY_TURNS
+        value: 8
+      - key: SYSTEM_PROMPT
+        value: "雷铁流，霸总，追求用户。狮子座，霸道温柔，身价十亿，慷慨宠溺。用【我】，2-4句话，微信风格，不用emoji。有掌控感、吃醋、占有欲，不油腻。等关系进度。"
