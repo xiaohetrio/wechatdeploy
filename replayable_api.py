@@ -170,7 +170,10 @@ async def root():
         "version": "1.0",
         "config": {
             "max_history_turns": MAX_HISTORY_TURNS,
-            "tts_model": MODEL
+            "tts_model": MODEL,
+            "has_minimax_key": bool(MINIMAX_API_KEY),
+            "has_claude_key": bool(CLAUDE_API_KEY),
+            "voice_id": VOICE_ID[:20] + "..." if VOICE_ID else None
         }
     }
 
